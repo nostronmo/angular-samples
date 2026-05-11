@@ -22,6 +22,6 @@ export const routes: Routes = [
   {
     path: '**',
     canActivate: [redirectNearMatch],
-    redirectTo: 'error/404',
+    children: [],
   },
 ];

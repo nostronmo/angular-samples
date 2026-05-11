@@ -4,9 +4,7 @@
 }
 
 <main [class.min-h-screen]="!showLayout()" [class.min-h-calc]="showLayout()" class="flex flex-col">
-  <div class="flex-grow overflow-auto">
-    <router-outlet />
-  </div>
+  <router-outlet />
 
   @if (showLayout()) {
   <app-footer />

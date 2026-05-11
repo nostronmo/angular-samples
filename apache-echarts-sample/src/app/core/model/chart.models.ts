@@ -1,9 +1,9 @@
 export interface MusicData {
-  track_popularity?: string;
+  track_popularity?: number;
   playlist_genre?: string;
   playlist_subgenre?: string;
   key?: string;
-  loudness?: string;
-  acousticness?: string;
-  duration_ms?: string;
+  loudness?: number;
+  acousticness?: number;
+  duration_ms?: number;
 }

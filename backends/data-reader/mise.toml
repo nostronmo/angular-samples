@@ -1,0 +1,36 @@
+[tools]
+uv = "latest"
+python = "3"
+
+[env]
+_.file = ".env"
+
+[tasks.init]
+description = "Start Venv Environment"
+run = "if ! [ -f pyproject.toml ]; then uv init --no-workspace; fi && uv sync"
+
+[tasks.run]
+description = "Run Application"
+run = "uv run main.py"
+
+[tasks.export]
+description = "Export libraries"
+run = "uv pip freeze > requirements.txt"
+
+[tasks.add]
+hide = true
+description = "Add new library to environment"
+run = "uv add"
+
+[tasks.remove]
+hide = true
+description = "Remove a library from environment"
+run = "uv remove"
+
+[tasks.docker_run]
+description = "Run Docker Compose Project"
+run = "docker compose up --build -d"
+
+[tasks.docker_stop]
+description = "Stop Docker Compose Project"
+run = "docker compose down"

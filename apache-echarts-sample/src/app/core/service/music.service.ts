@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { MusicData } from '../model/chart.models';
 import { Observable } from 'rxjs/internal/Observable';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../environment/environment.prod';
 
 @Injectable({
@@ -9,10 +9,24 @@ import { environment } from '../../../environment/environment.prod';
 })
 export class MusicService {
   private readonly apiUrl = `${environment.apiUrl}`;
+  private http = inject(HttpClient);
 
-  constructor(private http: HttpClient) {}
+  getMusicData(): Observable<MusicData[]> {
+    return this.http.get<MusicData[]>(this.apiUrl);
+  }
 
-  getCustomData(): Observable<MusicData> {
-    return this.http.get<MusicData>(this.apiUrl);
+  getMusicDataByTrackGenre(request: string): Observable<MusicData[]> {
+    const params = new HttpParams().set('track_genre', request.toString());
+    return this.http.get<MusicData[]>(this.apiUrl, { params });
+  }
+
+  getMusicDataByPopularity(popularity: number = 0): Observable<MusicData[]> {
+    const params = new HttpParams().set('popularity', popularity.toString());
+    return this.http.get<MusicData[]>(this.apiUrl, { params });
+  }
+
+  getMusicDataByDuration(duration: number = 0): Observable<MusicData[]> {
+    const params = new HttpParams().set('duration', duration.toString());
+    return this.http.get<MusicData[]>(this.apiUrl, { params });
   }
 }
