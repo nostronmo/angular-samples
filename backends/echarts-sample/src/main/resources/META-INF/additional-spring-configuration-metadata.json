@@ -1,0 +1,32 @@
+{"properties": [
+  {
+    "name": "settings.cors.allowed-origins",
+    "type": "java.lang.String",
+    "description": "A description for 'settings.cors.allowed-origins'"
+  },
+  {
+    "name": "settings.cors.max-age",
+    "type": "java.lang.String",
+    "description": "A description for 'settings.cors.max-age'"
+  },
+  {
+    "name": "application.size.page",
+    "type": "java.lang.String",
+    "description": "A description for 'application.size.page'"
+  },
+  {
+    "name": "security.https-only",
+    "type": "java.lang.String",
+    "description": "A description for 'security.https-only'"
+  },
+  {
+    "name": "security.front.csrf",
+    "type": "java.lang.String",
+    "description": "A description for 'security.front.csrf'"
+  },
+  {
+    "name": "security.front.https-only",
+    "type": "java.lang.String",
+    "description": "A description for 'security.front.https-only'"
+  }
+]}

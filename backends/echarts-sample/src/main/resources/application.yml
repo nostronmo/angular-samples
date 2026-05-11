@@ -1,0 +1,18 @@
+spring:
+  profiles:
+    active: actuator, config, ${PROFILE:test}
+  application:
+      name: eacharts-sample
+
+server:
+  port: ${SECURITY_HASH:8000}
+  forward-headers-strategy: framework
+  
+logging:
+  pattern:
+    console: '%n %d{HH:mm:ss} | %highlight(%-5level) | %cyan(%logger{30}) | %msg'
+  level:
+    root: INFO
+    org:
+      springframework: warn
+      boot: error
