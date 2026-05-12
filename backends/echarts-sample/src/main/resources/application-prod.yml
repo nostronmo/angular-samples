@@ -31,5 +31,5 @@ application:
 
 settings:
   cors:
-    allowed-origins: ${ALLOWED_ORIGINS}
+    allowed-origins: ${ALLOWED_ORIGINS:http://localhost:4200}
     max-age: ${CORS_TIME:3600}

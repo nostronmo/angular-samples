@@ -11,6 +11,8 @@ export class MusicService {
   private readonly apiUrl = `${environment.apiUrl}`;
   private http = inject(HttpClient);
 
+
+
   getMusicData(): Observable<MusicData[]> {
     return this.http.get<MusicData[]>(this.apiUrl);
   }

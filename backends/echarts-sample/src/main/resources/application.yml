@@ -1,11 +1,11 @@
 spring:
   profiles:
-    active: actuator, config, ${PROFILE:test}
+    active: ${PROFILE:test}
   application:
       name: eacharts-sample
 
 server:
-  port: ${SECURITY_HASH:8000}
+  port: ${ECHARTS_PORT:8000}
   forward-headers-strategy: framework
   
 logging:
