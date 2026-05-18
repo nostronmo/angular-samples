@@ -2,6 +2,7 @@ import os
 
 import pandas as pd
 from dotenv import load_dotenv
+from tqdm import tqdm
 from sqlalchemy import Boolean, Column, Float, Integer, String, create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 
@@ -48,9 +49,20 @@ Base.metadata.create_all(engine)
 
 
 def load_data_orm():
+    print("Reading CSV file...")
     df = pd.read_csv("../data/spotify_dataset.csv")
+    total_records = len(df)
 
-    df.to_sql(Track.__tablename__, con=engine, if_exists="replace", index=False)
+    chunksize = 10000
+
+    df.head(0).to_sql(Track.__tablename__, con=engine, if_exists="replace", index=False)
+
+    with tqdm(total=total_records, desc="Loading to DB", unit="rows") as pbar:
+        for i in range(0, total_records, chunksize):
+            chunk = df.iloc[i : i + chunksize]
+            chunk.to_sql(Track.__tablename__, con=engine, if_exists="append", index=False)
+            pbar.update(len(chunk))
+
     print("Data loaded via ORM-mapped table.")
 
 
