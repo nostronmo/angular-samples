@@ -17,6 +17,7 @@
 **package-lock.json
 
 # Node
+**/.angular
 **/node_modules
 **/npm-debug.log
 **/yarn-error.log

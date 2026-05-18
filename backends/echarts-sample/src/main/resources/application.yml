@@ -6,7 +6,6 @@ spring:
 
 server:
   port: ${ECHARTS_PORT:8000}
-  forward-headers-strategy: framework
   
 logging:
   pattern:
