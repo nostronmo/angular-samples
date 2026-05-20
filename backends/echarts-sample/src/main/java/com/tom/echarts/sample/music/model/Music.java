@@ -20,7 +20,8 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString(onlyExplicitlyIncluded = true)
 @Table(name = "spotify_tracks", indexes = {
-		@Index(columnList = "track_genre, popularity, danceability, energy", name = "idx_radar_performance"), })
+		@Index(columnList = "track_genre, popularity, danceability, energy", name = "idx_radar_performance"),
+		@Index(columnList = "danceability, energy, speechiness, acousticness, instrumentalness, valence", name = "idx_genre_stats") })
 public class Music extends Auditable {
 
 	@Id

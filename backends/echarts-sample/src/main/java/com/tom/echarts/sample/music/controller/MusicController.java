@@ -41,7 +41,4 @@ public class MusicController {
 	public Set<String> findAllGenres() {
 		return service.findAllGenres();
 	}
-	
-	
-	
 }
