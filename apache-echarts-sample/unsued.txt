@@ -1,0 +1,53 @@
+[tools]
+# rust = "1.91"
+# gcc = "13"
+node = "22"
+
+# [tasks.rust_add]
+# dir = "data_gen"
+# run = "cargo add"
+
+# [tasks.rust_clean]
+# dir = "data_gen"
+# run = "cargo clean"
+
+# [tasks.rust_build]
+# dir = "data_gen"
+# run = "cargo build"
+
+# [tasks.rust_run]
+# dir = "data_gen"
+# run = "cargo run"
+
+[tasks.setup]
+hide = true
+dir = "macrw"
+run = "cmake -B build -S ."
+
+[tasks.build]
+hide = true
+description = "Compile the project"
+dir = "macrw"
+depends = ["setup"]
+run = "cmake --build build -j$(nproc)"
+
+[tasks.b_run]
+hide = true
+description = "Build and Execute the binary"
+dir = "macrw/build"
+depends = ["build"]
+run = "./macrw"
+
+[tasks._run]
+hide = true
+description = "Execute the binary"
+dir = "macrw/build"
+run = "./macrw"
+
+[tasks.run]
+description = "Run Web App"
+run = "bun run start"
+
+[tasks.install]
+description = "Install Web App Libraries"
+run = "bun install"

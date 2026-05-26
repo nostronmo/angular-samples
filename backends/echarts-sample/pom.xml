@@ -22,11 +22,10 @@
         </license>
     </licenses>
 
-
     <developers>
         <developer>
             <name>Samuel</name>
-            <url>https://github.com/treeofmapple</url>
+            <url>https://github.com/nostronmo</url>
             <organization>Comical Ferret</organization>
             <organizationUrl>https://github.com/Pato-Incomum</organizationUrl>
         </developer>
@@ -92,11 +91,11 @@
             <artifactId>mapstruct</artifactId>
             <version>${mapstruct.version}</version>
         </dependency>
-        
+
         <!-- DevTools -->
         <dependency>
-        	<groupId>org.springframework.boot</groupId>
-        	<artifactId>spring-boot-devtools</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
         </dependency>
     </dependencies>
 

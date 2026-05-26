@@ -8,27 +8,23 @@ import { environment } from '../../../environment/environment.prod';
   providedIn: 'root',
 })
 export class MusicService {
-  private readonly apiUrl = `${environment.apiUrl}`;
+  private readonly apiUrl = `${environment.apiUrl}/v1/music`;
   private http = inject(HttpClient);
 
-
-
-  getMusicData(): Observable<MusicData[]> {
-    return this.http.get<MusicData[]>(this.apiUrl);
+  getAllGenres(): Observable<MusicData[]> {
+    return this.http.get<MusicData[]>(`${this.apiUrl}/genres`);
   }
 
-  getMusicDataByTrackGenre(request: string): Observable<MusicData[]> {
-    const params = new HttpParams().set('track_genre', request.toString());
-    return this.http.get<MusicData[]>(this.apiUrl, { params });
+  getMusicStatsByGenre(request: string): Observable<MusicData[]> {
+    const params = new HttpParams().set('genre', request.toString());
+    return this.http.get<MusicData[]>(`${this.apiUrl}/stats`, { params });
   }
 
-  getMusicDataByPopularity(popularity: number = 0): Observable<MusicData[]> {
-    const params = new HttpParams().set('popularity', popularity.toString());
-    return this.http.get<MusicData[]>(this.apiUrl, { params });
-  }
-
-  getMusicDataByDuration(duration: number = 0): Observable<MusicData[]> {
-    const params = new HttpParams().set('duration', duration.toString());
-    return this.http.get<MusicData[]>(this.apiUrl, { params });
+  getMusicStatsBetweenGenres(request: string[]): Observable<MusicData[]> {
+    let params = new HttpParams();
+    request.forEach((genre) => {
+      params = params.append('genre', genre);
+    });
+    return this.http.get<MusicData[]>(`${this.apiUrl}/compare`, { params });
   }
 }

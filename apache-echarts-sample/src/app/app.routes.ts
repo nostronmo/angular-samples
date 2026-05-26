@@ -13,7 +13,7 @@ export const routes: Routes = [
   },
   {
     path: 'chart',
-    loadComponent: () => import('./pages/chart/chart').then((m) => m.Chart),
+    loadChildren: () => import('./pages/chart/charts.routes').then((m) => m.chartRoutes),
   },
   {
     path: 'error',

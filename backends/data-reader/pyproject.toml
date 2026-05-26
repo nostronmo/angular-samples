@@ -10,4 +10,5 @@ dependencies = [
     "psycopg2-binary>=2.9.12",
     "sqlalchemy>=2.0.49",
     "sqlalchemy-orm>=1.2.10",
+    "tqdm>=4.67.3",
 ]
