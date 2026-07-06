@@ -1,4 +1,0 @@
-debounce
-trottling
-autocorrect
-autosave
